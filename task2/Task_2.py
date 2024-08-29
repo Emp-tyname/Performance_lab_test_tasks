@@ -3,8 +3,7 @@ file_circle_name = input('Пожалуйста, введите полное им
 file_dots_name = input('Пожалуйста, введите полное имя файла с координатами точек\n')
 file_circle = open(file_circle_name, 'r')
 file_dots = open(file_dots_name, 'r')
-BOT, TOP = (1 / (10 ** 38), 10 ** 38) ''' ОДЗ BOT ошибочно по тестовым условиям. т.к. точка 0 0 входит в ОДЗ, то есть
-                                          минимальное допустимое значение равно нулю'''
+BOT, TOP = (1 / (10 ** 38), 10 ** 38)  # BOT-значение, на самом деле, равно 0 по стартовым условиям задачи
 
 circle_data = [i.split() for i in file_circle.read().strip().split('\n')]
 x1, x2 = map(float, circle_data[0])  # x1, x2 - Координаты центра окружности, r - радиус окружности
@@ -12,7 +11,7 @@ r = float(circle_data[1][0])
 if any([(x1 < 0 or x1 > TOP), (x2 < 0 or x2 > TOP), r < 0]):  # Проверка файла с кругом на вход в ОДЗ
     flag = 0
 
-list_of_dots = [i.split() for i in file_dots.read().strip().split('\n')] # Список с координатами точек
+list_of_dots = [i.split() for i in file_dots.read().strip().split('\n')]  # Список с координатами точек
 for i in range(len(list_of_dots)):
     list_of_dots[i] = [float(j) for j in list_of_dots[i]]
     for j in list_of_dots[i]:
