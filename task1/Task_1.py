@@ -1,4 +1,13 @@
-n, m = map(int, input('Введите m и n \n').split())
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('n', type=int, help='Число n')
+parser.add_argument('m', type=int, help='Число n')
+obj = parser.parse_args()
+obj_dict = vars(obj)
+n = obj_dict['n']
+m = obj_dict['m']
+
+
 i = 1
 crit_path = []
 list_of_arrays = []
@@ -13,4 +22,4 @@ while True:
         break
 
 '''print(f"При длине обхода {m} получаем интервалы: ", *list_of_arrays) Найденные интервалы'''
-print("Полученный путь: ", *crit_path, sep='', end='.\n')
+print(*crit_path, sep='', end='\n')
